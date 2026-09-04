@@ -1094,8 +1094,15 @@ body { --bg: var(--scheme-1-bg); --card: var(--scheme-1-card); --text: var(--sch
       if (endpoint) {
         fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(order) })
           .then(function (r) { return r.json(); })
-          .then(function (d) { if (routed) { routed.hidden = false; routed.textContent = d.ok ? 'Bestellung an den Bestell-Router übergeben: ' + d.versand.map(function (v) { return v.marke + ' (' + v.status + ')'; }).join(', ') : 'Bestell-Router: ' + (d.error || 'Fehler'); } })
-          .catch(function () { if (routed) { routed.hidden = false; routed.textContent = 'Bestell-Router nicht erreichbar (Admin-Server aus?).'; } });
+          .then(function (d) {
+            if (!routed) return; routed.hidden = false;
+            if (!d.ok) { routed.textContent = 'Bestell-Router: ' + (d.error || 'Fehler'); return; }
+            var admin = endpoint.replace(/\/api\/orders$/, '');
+            var label = { gesendet: 'E-Mail gesendet', ausgang: 'E-Mail im Test-Postfach', 'kein-kontakt': 'kein Außendienst-Kontakt', 'keine-adresse': 'Kontakt ohne E-Mail', fehler: 'Fehler' };
+            routed.innerHTML = '<strong>Weiterleitung an den Außendienst</strong><ul style="margin:.5rem 0 0;padding-left:1.1rem;text-align:left">' + d.versand.map(function (v) { return '<li>' + v.marke + ' → ' + (v.name ? v.name + ' ' : '') + (v.empfaenger ? '&lt;' + v.empfaenger + '&gt;' : '') + ': ' + (label[v.status] || v.status) + '</li>'; }).join('') + '</ul>' +
+              '<p style="margin:.75rem 0 0"><a href="' + admin + '/?bereich=postfach" target="_blank" style="text-decoration:underline">E-Mails im Test-Postfach ansehen</a> · <a href="' + admin + '/?bereich=orders" target="_blank" style="text-decoration:underline">Bestellung im Admin ansehen</a></p>';
+          })
+          .catch(function () { if (routed) { routed.hidden = false; routed.textContent = 'Bestell-Router nicht erreichbar (Admin-Server aus oder Tunnel wechselt gerade). Die Bestellung wurde nicht weitergeleitet.'; } });
       }
       $('[data-order-number]', root).textContent = number; form.hidden = true; $('[data-checkout-done]', root).hidden = false;
       cart.save([]); cart.updateBadge(); window.scrollTo({ top: 0, behavior: 'smooth' });

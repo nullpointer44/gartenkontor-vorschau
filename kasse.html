@@ -1094,8 +1094,15 @@ body { --bg: var(--scheme-1-bg); --card: var(--scheme-1-card); --text: var(--sch
       if (endpoint) {
         fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(order) })
           .then(function (r) { return r.json(); })
-          .then(function (d) { if (routed) { routed.hidden = false; routed.textContent = d.ok ? 'Bestellung an den Bestell-Router übergeben: ' + d.versand.map(function (v) { return v.marke + ' (' + v.status + ')'; }).join(', ') : 'Bestell-Router: ' + (d.error || 'Fehler'); } })
-          .catch(function () { if (routed) { routed.hidden = false; routed.textContent = 'Bestell-Router nicht erreichbar (Admin-Server aus?).'; } });
+          .then(function (d) {
+            if (!routed) return; routed.hidden = false;
+            if (!d.ok) { routed.textContent = 'Bestell-Router: ' + (d.error || 'Fehler'); return; }
+            var admin = endpoint.replace(/\/api\/orders$/, '');
+            var label = { gesendet: 'E-Mail gesendet', ausgang: 'E-Mail im Test-Postfach', 'kein-kontakt': 'kein Außendienst-Kontakt', 'keine-adresse': 'Kontakt ohne E-Mail', fehler: 'Fehler' };
+            routed.innerHTML = '<strong>Weiterleitung an den Außendienst</strong><ul style="margin:.5rem 0 0;padding-left:1.1rem;text-align:left">' + d.versand.map(function (v) { return '<li>' + v.marke + ' → ' + (v.name ? v.name + ' ' : '') + (v.empfaenger ? '&lt;' + v.empfaenger + '&gt;' : '') + ': ' + (label[v.status] || v.status) + '</li>'; }).join('') + '</ul>' +
+              '<p style="margin:.75rem 0 0"><a href="' + admin + '/?bereich=postfach" target="_blank" style="text-decoration:underline">E-Mails im Test-Postfach ansehen</a> · <a href="' + admin + '/?bereich=orders" target="_blank" style="text-decoration:underline">Bestellung im Admin ansehen</a></p>';
+          })
+          .catch(function () { if (routed) { routed.hidden = false; routed.textContent = 'Bestell-Router nicht erreichbar (Admin-Server aus oder Tunnel wechselt gerade). Die Bestellung wurde nicht weitergeleitet.'; } });
       }
       $('[data-order-number]', root).textContent = number; form.hidden = true; $('[data-checkout-done]', root).hidden = false;
       cart.save([]); cart.updateBadge(); window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1147,13 +1154,14 @@ body { --bg: var(--scheme-1-bg); --card: var(--scheme-1-card); --text: var(--sch
 
 <section class="page-width section" data-checkout style="--section-pt:40px;--section-pb:96px">
   <nav aria-label="Breadcrumb"><ol class="breadcrumbs"><li><a href="index.html">Start</a></li><li><a href="warenkorb.html">Warenkorb</a></li><li aria-current="page">Kasse</li></ol></nav>
-  <h1 class="h1 mt-2 mb-4">Kasse</h1>
+  <h1 class="h1 mt-2 mb-2">Kasse</h1>
+  <p class="muted mb-4" style="max-width:60ch">Testbestellungen sind hier ausdrücklich erwünscht: Es wird nichts bezahlt, aber die Bestellung durchläuft echt die Weiterleitung an die Außendienstler (Test-Postfächer im Admin).</p>
   <div class="empty-state" data-checkout-empty hidden><h2 class="h3">Dein Warenkorb ist leer.</h2><a class="btn btn--primary" href="kategorien.html">Weiter stöbern</a></div>
   <div class="empty-state" data-checkout-done hidden>
     <span class="eyebrow">Bestellung eingegangen</span>
     <h2 class="h1">Danke für deine Bestellung!</h2>
     <p class="lede muted">Bestellnummer <strong data-order-number></strong>. Du erhältst eine Bestätigung per E-Mail. Für Speditionsware melden wir uns zur Terminabstimmung.</p>
-    <p class="form__success" data-order-routed hidden></p>
+    <div class="form__success" data-order-routed hidden style="text-align:left;max-width:40rem"></div>
     <p class="muted" style="font-size:.85rem">Vorschau-Hinweis: Im echten Shop übernimmt Shopify Zahlung, Bestätigungsmail und Bestellverwaltung.</p>
     <a class="btn btn--primary" href="index.html">Zur Startseite</a>
   </div>
