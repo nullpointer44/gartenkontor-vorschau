@@ -4,5 +4,7 @@
 window.SHOPIFY_CONFIG = {
   domain: "",            // z. B. "gartenkontor-goymark.myshopify.com"
   storefrontToken: "",   // Storefront API access token (public)
-  apiVersion: "2025-07"
+  apiVersion: "2025-07",
+  // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
+  orderEndpoint: "https://had-generator-dress-simple.trycloudflare.com/api/orders"
 };

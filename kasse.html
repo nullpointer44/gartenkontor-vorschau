@@ -1086,6 +1086,17 @@ body { --bg: var(--scheme-1-bg); --card: var(--scheme-1-card); --text: var(--sch
       if (!form.reportValidity()) { err.hidden = false; err.textContent = 'Bitte fülle alle Pflichtfelder aus und bestätige AGB und Widerrufsbelehrung.'; return; }
       err.hidden = true;
       var number = 'GK-' + new Date().getFullYear() + '-' + String(Math.floor(1000 + Math.random() * 9000));
+      var ship = $('input[name="shipping"]:checked', root); var pay = $('input[name="payment"]:checked', root);
+      var order = { orderNumber: number, email: $('#CoEmail').value, firstName: $('#CoFirst').value, lastName: $('#CoLast').value, street: $('#CoStreet').value, zip: $('#CoZip').value, city: $('#CoCity').value, phone: $('#CoPhone').value,
+        items: items, note: (window.localStorage.getItem('goymark-preview-note') || ''), shipping: ship ? ship.dataset.shipLabel : '', payment: pay ? pay.value : '', total: $('[data-co-total]', root).textContent };
+      var endpoint = (window.SHOPIFY_CONFIG || {}).orderEndpoint;
+      var routed = $('[data-order-routed]', root);
+      if (endpoint) {
+        fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(order) })
+          .then(function (r) { return r.json(); })
+          .then(function (d) { if (routed) { routed.hidden = false; routed.textContent = d.ok ? 'Bestellung an den Bestell-Router übergeben: ' + d.versand.map(function (v) { return v.marke + ' (' + v.status + ')'; }).join(', ') : 'Bestell-Router: ' + (d.error || 'Fehler'); } })
+          .catch(function () { if (routed) { routed.hidden = false; routed.textContent = 'Bestell-Router nicht erreichbar (Admin-Server aus?).'; } });
+      }
       $('[data-order-number]', root).textContent = number; form.hidden = true; $('[data-checkout-done]', root).hidden = false;
       cart.save([]); cart.updateBadge(); window.scrollTo({ top: 0, behavior: 'smooth' });
     });
@@ -1142,6 +1153,7 @@ body { --bg: var(--scheme-1-bg); --card: var(--scheme-1-card); --text: var(--sch
     <span class="eyebrow">Bestellung eingegangen</span>
     <h2 class="h1">Danke für deine Bestellung!</h2>
     <p class="lede muted">Bestellnummer <strong data-order-number></strong>. Du erhältst eine Bestätigung per E-Mail. Für Speditionsware melden wir uns zur Terminabstimmung.</p>
+    <p class="form__success" data-order-routed hidden></p>
     <p class="muted" style="font-size:.85rem">Vorschau-Hinweis: Im echten Shop übernimmt Shopify Zahlung, Bestätigungsmail und Bestellverwaltung.</p>
     <a class="btn btn--primary" href="index.html">Zur Startseite</a>
   </div>
