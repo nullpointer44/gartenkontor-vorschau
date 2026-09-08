@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://sunny-reduction-coupon-los.trycloudflare.com/api/orders"
+  orderEndpoint: "https://tuition-anytime-fireplace-transmit.trycloudflare.com/api/orders"
 };
