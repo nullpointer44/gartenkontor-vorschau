@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://resumes-novels-montana-receives.trycloudflare.com/api/orders"
+  orderEndpoint: "https://stolen-unknown-bare-consistency.trycloudflare.com/api/orders"
 };
