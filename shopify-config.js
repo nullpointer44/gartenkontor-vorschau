@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://wed-artist-england-dawn.trycloudflare.com/api/orders"
+  orderEndpoint: "https://nuclear-was-testament-discounts.trycloudflare.com/api/orders"
 };
