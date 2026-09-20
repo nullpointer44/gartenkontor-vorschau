@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://prepared-casino-destinations-puzzles.trycloudflare.com/api/orders"
+  orderEndpoint: "https://sydney-tomatoes-overcome-gender.trycloudflare.com/api/orders"
 };
