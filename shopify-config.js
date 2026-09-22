@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://then-vegetation-stanford-parking.trycloudflare.com/api/orders"
+  orderEndpoint: "https://euro-stable-jerusalem-avoid.trycloudflare.com/api/orders"
 };
