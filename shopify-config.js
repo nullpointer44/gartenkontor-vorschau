@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://integral-resistance-pie-calling.trycloudflare.com/api/orders"
+  orderEndpoint: "https://portions-statistical-produce-shoe.trycloudflare.com/api/orders"
 };
