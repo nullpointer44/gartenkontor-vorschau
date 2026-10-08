@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://rats-make-executed-basis.trycloudflare.com/api/orders"
+  orderEndpoint: "https://cosmetic-increase-grocery-automotive.trycloudflare.com/api/orders"
 };
