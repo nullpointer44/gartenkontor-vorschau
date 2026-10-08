@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://warrant-walnut-storage-wake.trycloudflare.com/api/orders"
+  orderEndpoint: "https://experiencing-herald-restoration-alternative.trycloudflare.com/api/orders"
 };
