@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://rochester-selection-voip-because.trycloudflare.com/api/orders"
+  orderEndpoint: "https://estate-tab-upload-universal.trycloudflare.com/api/orders"
 };
