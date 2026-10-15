@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://lady-watched-wrestling-order.trycloudflare.com/api/orders"
+  orderEndpoint: "https://lodge-lift-stretch-ntsc.trycloudflare.com/api/orders"
 };
