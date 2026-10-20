@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://oxygen-lending-pam-identification.trycloudflare.com/api/orders"
+  orderEndpoint: "https://appointments-trembl-publicly-seo.trycloudflare.com/api/orders"
 };
