@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://mia-calling-chapters-mysterious.trycloudflare.com/api/orders"
+  orderEndpoint: "https://smoking-mask-treasure-induction.trycloudflare.com/api/orders"
 };
