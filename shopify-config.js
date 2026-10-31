@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://amongst-animation-encourage-increasingly.trycloudflare.com/api/orders"
+  orderEndpoint: "https://motels-consumer-honor-grace.trycloudflare.com/api/orders"
 };
