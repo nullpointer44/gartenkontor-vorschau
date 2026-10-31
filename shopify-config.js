@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://reverse-encourages-alien-pieces.trycloudflare.com/api/orders"
+  orderEndpoint: "https://actual-automobiles-generated-sent.trycloudflare.com/api/orders"
 };
