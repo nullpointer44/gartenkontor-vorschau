@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://loud-attacked-really-amend.trycloudflare.com/api/orders"
+  orderEndpoint: "https://time-seeker-dry-mall.trycloudflare.com/api/orders"
 };
