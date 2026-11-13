@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://festival-myth-tub-colors.trycloudflare.com/api/orders"
+  orderEndpoint: "https://cocktail-lined-expo-pct.trycloudflare.com/api/orders"
 };
