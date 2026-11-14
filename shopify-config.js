@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://encouraging-outdoors-overnight-intend.trycloudflare.com/api/orders"
+  orderEndpoint: "https://title-quarter-cup-templates.trycloudflare.com/api/orders"
 };
