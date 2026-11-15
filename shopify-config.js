@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://friday-mathematics-infectious-points.trycloudflare.com/api/orders"
+  orderEndpoint: "https://sri-beth-growth-pencil.trycloudflare.com/api/orders"
 };
