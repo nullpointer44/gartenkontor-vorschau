@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://heather-kills-lawn-hebrew.trycloudflare.com/api/orders"
+  orderEndpoint: "https://ons-plans-roots-function.trycloudflare.com/api/orders"
 };
