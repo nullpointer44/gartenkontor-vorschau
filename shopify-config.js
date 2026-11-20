@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://vehicles-calcium-scanners-scored.trycloudflare.com/api/orders"
+  orderEndpoint: "https://alpha-cakes-highlight-technique.trycloudflare.com/api/orders"
 };
