@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://prompt-cohen-motors-checkout.trycloudflare.com/api/orders"
+  orderEndpoint: "https://constraints-mirror-fold-laws.trycloudflare.com/api/orders"
 };
