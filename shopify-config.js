@@ -6,5 +6,5 @@ window.SHOPIFY_CONFIG = {
   storefrontToken: "",   // Storefront API access token (public)
   apiVersion: "2025-07",
   // Bestell-Router des Admin-Tools (Bestellungen der Vorschau-Kasse werden an die Außendienstler gemeldet; leer = aus)
-  orderEndpoint: "https://annex-absence-proudly-interactions.trycloudflare.com/api/orders"
+  orderEndpoint: "https://eds-veteran-prospective-months.trycloudflare.com/api/orders"
 };
